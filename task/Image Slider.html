@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Image Slider</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .slider-container { width: 300px; margin: 20px auto; }
+        img { width: 100%; height: auto; border-radius: 10px; }
+        button { margin: 10px; padding: 5px 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h2>Flower Image Slider</h2>
+    <div class="slider-container">
+        <img id="sliderImage" src="https://img.freepik.com/free-photo/cosmos-flowers_1373-83.jpg" alt="Flower Image">
+        <div>
+            <button onclick="prevImage()">Previous</button>
+            <button onclick="nextImage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+      let images = [
+    "https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/46216/sunflower-flowers-bright-yellow-46216.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/39517/rose-flower-blossom-bloom-39517.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/67857/daisy-flower-spring-marguerite-67857.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/132474/pexels-photo-132474.jpeg?auto=compress&cs=tinysrgb&w=600"
+];
+
+
+
+        let currentIndex = 0;
+
+        function updateImage() {
+            document.getElementById("sliderImage").src = images[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+    </script>
+</body>
+</html>
